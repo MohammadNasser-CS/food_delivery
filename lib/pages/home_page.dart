@@ -135,12 +135,14 @@ class _HomePageState extends State<HomePage> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) => InkWell(
                   onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ProductDetails(productItem: filterdProducts[index]),
-                      ),
-                    );
+                    Navigator.of(context)
+                        .push(
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetails(
+                                productItem: filterdProducts[index]),
+                          ),
+                        )
+                        .then((value) => setState(() => {}));
                   },
                   child: Container(
                     decoration: BoxDecoration(
