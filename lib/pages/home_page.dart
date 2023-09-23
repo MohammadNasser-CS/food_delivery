@@ -134,15 +134,18 @@ class _HomePageState extends State<HomePage> {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemBuilder: (context, index) => InkWell(
-                  onTap: () {
-                    Navigator.of(context)
+                  onTap: () async {
+                    await Navigator.of(context)
                         .push(
-                          MaterialPageRoute(
-                            builder: (context) => ProductDetails(
-                                productItem: filterdProducts[index]),
-                          ),
-                        )
-                        .then((value) => setState(() => {}));
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProductDetails(productItem: filterdProducts[index]),
+                      ),
+                    )
+                        .then((value) {
+                      setState(() => {});
+                      debugPrint(value.toString());
+                    });
                   },
                   child: Container(
                     decoration: BoxDecoration(

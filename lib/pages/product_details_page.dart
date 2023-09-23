@@ -40,6 +40,12 @@ class _ProductDetailsState extends State<ProductDetails> {
       appBar: AppBar(
         title: Text(tempProductItem.name),
         backgroundColor: Colors.grey[200],
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop('Test');
+          },
+          icon: const Icon(Icons.arrow_back_ios_new_outlined),
+        ),
         actions: [
           IconButton(
             onPressed: () {
